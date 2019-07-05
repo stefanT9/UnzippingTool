@@ -88,17 +88,17 @@ class WorkerThread (threading.Thread):
 
 	def get_info(self):
 		if self.cleaning==True:
-			print (self.name+' Cleaning after '+self.task.split('/')[-1]\
+			print self.name+' Cleaning after '+self.task.split('/')[-1]\
 			+' #fails= '+str(self.fails)\
-			+' #processed files= '+str(self.nr_of_processed_files))
+			+' #processed files= '+str(self.nr_of_processed_files)
 		elif self.is_busy==True:
-			print (self.name+' unziping '+self.task.split('/')[-1]+' size: '\
+			print self.name+' unziping '+self.task.split('/')[-1]+' size: '\
 			+str(humanfriendly.format_size(os.path.getsize(self.task)))\
 			+' #fails= '+str(self.fails)\
-			+' #processed files= '+str(self.nr_of_processed_files))
+			+' #processed files= '+str(self.nr_of_processed_files)
 		else:
-			print (self.name+' Idle'+' #fails= '+str(self.fails)\
-			+' #processed files= '+str(self.nr_of_processed_files))
+			print self.name+' Idle'+' #fails= '+str(self.fails)\
+			+' #processed files= '+str(self.nr_of_processed_files)
 	def run(self):
 		with threading.Lock():
 			logging.info(str(time.ctime(time.time())+' Thread '+self.name+' started'))
